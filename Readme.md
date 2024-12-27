@@ -84,28 +84,6 @@ If you want to implement one of the examples inside of your project:
 3. Remove example folder from `examples`.
 4. Remove route from `src/routes/[local]/examples`.
 
-### Playwright
-
-if you want to **remove** Playwright:
-
-1. Uninstall all packages mentioned in the `package.json` of the `examples/playwright` folder.
-2. Remove the `examples/playwright` folder in the root of the project
-3. Remove the following scripts from the `package.json` in the root of this project:
-   - `test:e2e`
-   - `test:ui`
-   - `test:headed`
-   - `test:tag`
-   - `show-report`
-4. Remove the `BASE_URL` from your `.env` file
-
-### Svelte Query
-
-If you want to **remove** Svelte Query:
-
-1. Uninstall all packages mentioned in the package.json of the `examples/svelte-query` folder.
-2. Remove the `examples/svelte-query` folder in `/src/routes/[locale]`
-3. Remove the `examples/svelte-query` folder in the root of the project
-
 ## Playwright framework:
 
 1. Prepare local env file: `cp .env.example .env`

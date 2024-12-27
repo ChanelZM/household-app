@@ -65,11 +65,8 @@
   },
   "dependencies": {
     "@felte/validator-zod": "^1.0.17",
-    "@tanstack/svelte-query": "^5.59.6",
-    "@tanstack/svelte-query-devtools": "^5.59.6",
     "dayjs": "^1.11.13",
     "felte": "^1.2.14",
-    "modern-normalize": "^3.0.1",
-    "svelte-i18n": "^4.0.0"
+    "modern-normalize": "^3.0.1"
   }
 }
