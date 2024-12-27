@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { t } from "svelte-i18n";
   import type { TodoDto } from "$services/todos/dtoTypes/api-get.js";
   import { page } from "$app/stores";
   import Text from "$components/Text/Text.svelte";
@@ -58,7 +57,7 @@
           />
         </li>
       {:else}
-        <p class="info">{$t("noTodos")}</p>
+        <p class="info">No todos</p>
       {/each}
     </ul>
   {/if}

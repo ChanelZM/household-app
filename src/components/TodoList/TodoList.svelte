@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { t } from "svelte-i18n";
   import type { Todo } from "$models/todo";
   import TodoItemConnector from "$connectors/TodoItemConnector.svelte";
   import sortTodosByDueDate from "$utils/sortTodosByDueDate";
@@ -25,7 +24,7 @@
       />
     </li>
   {:else}
-    <p>{$t("nothingFound")}</p>
+    <p>Nothing found</p>
   {/each}
 </ul>
 

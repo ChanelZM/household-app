@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { t } from "svelte-i18n";
   import type { Project } from "$models/project";
   import TodoForm from "$components/TodoForm/TodoForm.svelte";
   import VectorGraphic from "$components/VectorGraphic/VectorGraphic.svelte";
@@ -26,11 +25,11 @@
 </script>
 
 <div class="heading">
-  <Text variant="h1" styling="heading1" className="header">{$t("title")}</Text>
+  <Text variant="h1" styling="heading1" className="header">Title</Text>
 
   <div class="actions">
     <Button on:click={openModal} testId="todoheading-add-button">
-      {$t("addTodo")}
+      Add todo
       <VectorGraphic name="icon-add" className="button-icon" />
     </Button>
   </div>
@@ -38,7 +37,7 @@
   <TodoForm
     on:close={closeModal}
     on:submit
-    submitLabel={$t("add")}
+    submitLabel="Add"
     {showModal}
     {isLoading}
     {projects}

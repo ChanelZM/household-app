@@ -1,6 +1,5 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import { t } from "svelte-i18n";
   import type { Project } from "$models/project";
   import Button from "$components/Button/Button.svelte";
   import FormLabel from "$components/FormLabel/FormLabel.svelte";
@@ -24,12 +23,10 @@
 
 <Modal show={showModal} on:close>
   <form on:submit|preventDefault class="form">
-    <h1 class="title">
-      {$t("addTodo")}
-    </h1>
+    <h1 class="title">Add todo</h1>
 
     <FormRow>
-      <FormLabel forId="description" text={$t("description")} />
+      <FormLabel forId="description" text="Description" />
       <InputText
         id="description"
         name="description"
@@ -39,7 +36,7 @@
     </FormRow>
 
     <FormRow>
-      <FormLabel forId="dueDate" text={$t("dueDate")} />
+      <FormLabel forId="dueDate" text="Due date" />
       <InputDate
         id="dueDate"
         name="dueDate"
@@ -47,7 +44,7 @@
         testId="todoform-input"
       />
     </FormRow>
-    <FormLabel forId="projects" text={$t("selectProject")} />
+    <FormLabel forId="projects" text="Select project" />
     <Select
       id="projects"
       value={projectId}
@@ -64,7 +61,7 @@
         type="button"
         disabled={isLoading}
         testId="cancelToDo-button"
-        on:click={() => dispatch("close")}>{$t("cancel")}</Button
+        on:click={() => dispatch("close")}>Cancel</Button
       >
       <Button type="submit" testId="todoform-submit-button"
         >{submitLabel}</Button

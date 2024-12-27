@@ -1,12 +1,5 @@
-<script lang="ts">
-  import { locale } from "svelte-i18n";
-</script>
-
 <nav>
   <ul class="list">
-    <li class="item">
-      <a class="link" href={`/${$locale}/examples`}>Examples</a>
-    </li>
     <li class="item">
       <a class="link" href="/" data-testid="homepage-home-button">Home</a>
     </li>

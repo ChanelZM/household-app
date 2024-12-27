@@ -84,22 +84,6 @@ If you want to implement one of the examples inside of your project:
 3. Remove example folder from `examples`.
 4. Remove route from `src/routes/[local]/examples`.
 
-## Playwright framework:
-
-1. Prepare local env file: `cp .env.example .env`
-2. Copy application main URL as value of `BASE_URL` variable in `.env` file
-
-Our automation framework follows specific coding standards and tracks significant architectural and technical decisions. You can find detailed information in the following files located in the `playwright/docs` folder:
-
-1. **CODING_STANDARDS.md**:
-
-   - This document outlines the coding standards and best practices we follow in our project. It includes guidelines on code formatting, naming conventions, and other important practices to ensure code quality and consistency.
-   - Location: `playwright/docs/CODING_STANDARDS.md`
-
-2. **DECISION_LOG.md**:
-   - This document maintains a log of major decisions made throughout the project. It includes entries detailing the context, proposed solutions, pros and cons, and the final decision for various technical and architectural choices.
-   - Location: `playwright/docs/DECISION_LOG.md`
-
 ## How to remove locale prefixes from url:
 
 When using only one language in the project, you might want to remove locale prefix from url. In order to do that, do following steps:

@@ -1,6 +1,5 @@
 <script lang="ts">
   import dayjs from "dayjs";
-  import { t } from "svelte-i18n";
   import Card from "../Card/Card.svelte";
   import Text from "../Text/Text.svelte";
 
@@ -29,7 +28,7 @@
         testId="tododetails-project"
         className="item"
       >
-        {$t("project")}:
+        Project:
         {project}
       </Text>
     </div>
@@ -41,7 +40,7 @@
           testId="tododetails-date"
           className="item"
         >
-          {$t("dueDate")}:
+          Due date:
           {dayjs(dueDate).format("DD MMM YYYY")}
         </Text>
       </div>
@@ -54,7 +53,7 @@
           testId="tododetails-id"
           className="item"
         >
-          {$t("id")}:
+          ID:
           {id}
         </Text>
       </div>
