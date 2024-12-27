@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { t } from "svelte-i18n";
   import MobileMenuItems from "$components/MobileMenuItems/MobileMenuItems.svelte";
   import VectorGraphic from "$components/VectorGraphic/VectorGraphic.svelte";
   import clickOutside from "$utils/useClickOutside";
@@ -15,7 +14,7 @@
   <div class="menu-button">
     <button
       on:click|stopPropagation={toggleMenu}
-      aria-label={$t("openMenu")}
+      aria-label="Open menu"
       class="button"><VectorGraphic name="icon-menu" /></button
     >
   </div>
@@ -31,7 +30,7 @@
         <div class="close-button">
           <button
             on:click|stopPropagation={toggleMenu}
-            aria-label={$t("closeMenu")}
+            aria-label="Close menu"
             class="button"
           >
             <VectorGraphic name="icon-close" />

@@ -1,15 +1,14 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { t } from "svelte-i18n";
   import type { TodoDto } from "$services/todos/dtoTypes/api-get.js";
   import ProjectList from "$components/ProjectList/ProjectList.svelte";
   import Text from "$components/Text/Text.svelte";
   import TodoForm from "$components/TodoForm/TodoForm.svelte";
   import TodoList from "$components/TodoList/TodoList.svelte";
+  import TodoHeadingConnector from "$connectors/TodoHeadingConnector.svelte";
   import { fetchTodos, updateTodo } from "$services/todos";
   import asyncStore from "$stores/asyncStore.js";
   import projectsStore from "$stores/projects";
-  import TodoHeadingConnector from "../../connectors/TodoHeadingConnector.svelte";
 
   export let data;
 
@@ -78,9 +77,7 @@
 </svelte:head>
 <div class="wrapper">
   <aside class="filter">
-    <Text variant="h3" styling="body-sm" className="title"
-      >{$t("projects")}</Text
-    >
+    <Text variant="h3" styling="body-sm" className="title">Projects</Text>
     <ProjectList
       on:toggle-project={(e) => setActiveProject(e.detail)}
       projects={data.projects}
@@ -114,7 +111,7 @@
       ? new Date(editTodo.dueDate).toISOString().split("T")[0]
       : ""}
     projectId={editTodo?.project?.id}
-    submitLabel={$t("update")}
+    submitLabel={"Updates"}
   />
 </div>
 

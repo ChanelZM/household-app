@@ -1,7 +1,6 @@
 <script lang="ts">
   import dayjs from "dayjs";
   import { createEventDispatcher } from "svelte";
-  import { t } from "svelte-i18n";
   import type { Project } from "$models/project";
   import { page } from "$app/stores";
   import Checkbox from "$components/Checkbox/Checkbox.svelte";
@@ -35,7 +34,7 @@
         on:change={() => dispatch("done")}
         disabled={isDeleting || isDoneChanging}
       >
-        {done ? $t("labelAsUndone") : $t("labelAsDone")}
+        {done ? "Open" : "Done"}
       </Checkbox>
     </div>
     <div class="header">
@@ -62,7 +61,7 @@
 
       <div class={done ? "tag-done" : "tag"}>
         <Text variant="span" styling="copy">
-          {done ? $t("done") : $t("todo")}
+          {done ? "Done" : "Todo"}
         </Text>
       </div>
 
@@ -86,7 +85,7 @@
           disabled={isDeleting || isDoneChanging}
           testId="todoitem-button-edit"
         >
-          {$t("edit")}
+          Edit
         </Button>
         <Button
           on:click={() => dispatch("delete")}
@@ -96,7 +95,7 @@
           disabled={isDoneChanging}
           testId="todoitem-button-delete"
         >
-          {$t("delete")}
+          Delete
         </Button>
       </Stack>
     </div>

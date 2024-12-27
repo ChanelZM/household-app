@@ -1,16 +1,10 @@
 <script lang="ts">
-  import { locale } from "svelte-i18n";
   import { page } from "$app/stores";
-  import LanguageSwitcher from "$components/LanguageSwitcher/LanguageSwitcher.svelte";
   import MainNavigation from "$components/MainNavigation/MainNavigation.svelte";
   import Text from "$components/Text/Text.svelte";
   import ThemeSwitcher from "$components/ThemeSwitcher/ThemeSwitcher.svelte";
 
   const { pathname } = $page.url;
-
-  const isTodoPage =
-    pathname === `/${$locale}` ||
-    pathname === `/${$locale}/examples/svelte-query`;
 </script>
 
 <div class="items">
@@ -18,7 +12,6 @@
     <div class="heading">
       <Text variant="h3" styling="body-sm">Language</Text>
     </div>
-    <LanguageSwitcher />
   </section>
   <section class="theme-container container spacing">
     <div class="heading">
@@ -36,7 +29,7 @@
     <MainNavigation />
   </section>
 
-  {#if isTodoPage}
+  {#if pathname === `/`}
     <slot name="project-list" />
   {/if}
 </div>

@@ -1,12 +1,8 @@
-<div class="wrapper">
-  <slot />
-</div>
+<script lang="ts">
+  import TopBar from "$components/TopBar/TopBar.svelte";
 
-<style lang="scss">
-  .wrapper {
-    max-width: 110rem;
-    min-height: 100vh;
-    margin: 0 auto;
-    background-color: var(--tc-background-primary);
-  }
-</style>
+  import "$styles/global.scss";
+</script>
+
+<TopBar />
+<slot />

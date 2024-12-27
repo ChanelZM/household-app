@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { t } from "svelte-i18n";
-  import LanguageSwitcher from "$components/LanguageSwitcher/LanguageSwitcher.svelte";
   import MainNavigation from "$components/MainNavigation/MainNavigation.svelte";
   import MobileMenu from "$components/MobileMenu/MobileMenu.svelte";
   import ThemeSwitcher from "$components/ThemeSwitcher/ThemeSwitcher.svelte";
@@ -12,7 +10,7 @@
     <slot name="project-list" slot="project-list" />
   </MobileMenu>
 
-  <a href="/" aria-label={$t("goToHomepage")} class="logo">
+  <a href="/" aria-label="Go to home" class="logo">
     <VectorGraphic name="illustration-logo" size={4} />
   </a>
 
@@ -20,8 +18,6 @@
     <MainNavigation />
 
     <ThemeSwitcher />
-
-    <LanguageSwitcher />
   </div>
 </div>
 
