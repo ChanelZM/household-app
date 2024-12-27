@@ -1,0 +1,26 @@
+{
+  "border": {
+    "width": {
+      "$type": "dimension",
+      "thin": { "$value": 1 },
+      "thick": { "$value": 4 }
+    },
+
+    "heavy": {
+      "$type": "border",
+      "$value": {
+        "color": "{color.neutral.500}",
+        "width": "{border.width.thick}",
+        "style": "solid"
+      }
+    },
+    "thin": {
+      "$type": "border",
+      "$value": {
+        "color": "{color.neutral.500}",
+        "width": "{border.width.thin}",
+        "style": "dotted"
+      }
+    }
+  }
+}

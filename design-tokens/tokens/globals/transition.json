@@ -1,0 +1,46 @@
+{
+  "transition": {
+    "fast-in": {
+      "$type": "transition",
+      "$value": {
+        "duration": "{transition.duration.short}",
+        "delay": "{transition.delay.instant}",
+        "timingFunction": "{transition.easing.accelerate}"
+      }
+    },
+    "fast-out": {
+      "$type": "transition",
+      "$value": {
+        "duration": "{transition.duration.short}",
+        "delay": "{transition.delay.instant}",
+        "timingFunction": "{transition.easing.decelerate}"
+      }
+    },
+    "easing": {
+      "accelerate": {
+        "$type": "cubicBezier",
+        "$value": [0.5, 0, 1, 1]
+      },
+      "decelerate": {
+        "$type": "cubicBezier",
+        "$value": [0, 0, 0.5, 1]
+      }
+    },
+
+    "delay": {
+      "$type": "time",
+      "instant": { "$value": 0 },
+      "short": { "$value": 50 },
+      "base": { "$value": 100 },
+      "long": { "$value": 200 }
+    },
+
+    "duration": {
+      "$type": "time",
+      "instant": { "$value": 0 },
+      "short": { "$value": 150 },
+      "base": { "$value": 250 },
+      "long": { "$value": 500 }
+    }
+  }
+}

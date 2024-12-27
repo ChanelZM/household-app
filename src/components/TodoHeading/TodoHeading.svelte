@@ -1,0 +1,69 @@
+<script lang="ts">
+  import { t } from "svelte-i18n";
+  import type { Project } from "$models/project";
+  import TodoForm from "$components/TodoForm/TodoForm.svelte";
+  import VectorGraphic from "$components/VectorGraphic/VectorGraphic.svelte";
+  import Button from "../Button/Button.svelte";
+  import Text from "../Text/Text.svelte";
+
+  export let projects: Project[] = [];
+  export let isLoading = false;
+  export let wasSuccessful = false;
+
+  let showModal: boolean = false;
+
+  $: if (wasSuccessful) {
+    closeModal();
+  }
+
+  function closeModal() {
+    showModal = false;
+  }
+
+  function openModal() {
+    showModal = true;
+  }
+</script>
+
+<div class="heading">
+  <Text variant="h1" styling="heading1" className="header">{$t("title")}</Text>
+
+  <div class="actions">
+    <Button on:click={openModal} testId="todoheading-add-button">
+      {$t("addTodo")}
+      <VectorGraphic name="icon-add" className="button-icon" />
+    </Button>
+  </div>
+
+  <TodoForm
+    on:close={closeModal}
+    on:submit
+    submitLabel={$t("add")}
+    {showModal}
+    {isLoading}
+    {projects}
+  />
+</div>
+
+<style lang="scss">
+  .heading :global(.header) {
+    color: var(--tc-text-primary);
+  }
+
+  .heading :global(.button-icon) {
+    color: var(--tc-background-primary);
+  }
+
+  .heading {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 5rem;
+    margin-bottom: var(--spacing-24);
+  }
+
+  .actions {
+    margin-left: auto;
+  }
+</style>

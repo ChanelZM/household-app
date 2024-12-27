@@ -1,0 +1,16 @@
+{
+  "name": "form-handling",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@felte/validator-zod": "^1.0.17",
+    "felte": "^1.2.14",
+    "zod": "^3.23.8",
+    "triple-boilerplate-svelte": "file:../.."
+  }
+}

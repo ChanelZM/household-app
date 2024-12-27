@@ -1,0 +1,32 @@
+{
+  "color": {
+    "$type": "color",
+    "white": { "$value": "#ffffff" },
+    "black": { "$value": "#000000" },
+
+    "neutral": {
+      "100": { "$value": "#eee" },
+      "200": { "$value": "#d7d7d7" },
+      "300": { "$value": "#b5b4b5" },
+      "400": { "$value": "#9c9b9d" },
+      "500": { "$value": "#515053" },
+      "600": { "$value": "#373539" },
+      "700": { "$value": "#1c1a1f" }
+    },
+    "blue": {
+      "100": { "$value": "#dde6ee" },
+      "300": { "$value": "#4a6987" },
+      "500": { "$value": "#2c3c4e" }
+    },
+
+    "error": {
+      "100": { "$value": "#ffadad" },
+      "500": { "$value": "#A80000" }
+    },
+
+    "success": {
+      "100": { "$value": "#dbffdb" },
+      "500": { "$value": "#006100" }
+    }
+  }
+}

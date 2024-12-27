@@ -1,0 +1,43 @@
+{
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "suisseLight": { "$value": "'Suisse Intl Light', sans-serif" },
+      "suisse": { "$value": "'Suisse Intl', sans-serif" },
+      "suisseMedium": { "$value": "'Suisse Intl Medium', sans-serif" },
+      "suisseBook": { "$value": "'Suisse Intl Book', sans-serif" },
+      "grotesk": { "$value": "'FK Grotesk Mono', sans-serif" },
+      "groteskMedium": { "$value": "'FK Grotesk Mono Medium', sans-serif" }
+    },
+    "size": {
+      "$type": "dimension",
+      "xxs": { "$value": 12 },
+      "xs": { "$value": 14 },
+      "sm": { "$value": 16 },
+      "md": { "$value": 18 },
+      "lg": { "$value": 20 },
+      "xl": { "$value": 24 },
+      "xxl": { "$value": 32 },
+      "xxxl": { "$value": 48 },
+      "base": { "$value": "{font.size.sm}" }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "light": { "$value": 300 },
+      "normal": { "$value": 400 },
+      "medium": { "$value": 450 },
+      "semibold": { "$value": 500 },
+      "bold": { "$value": 600 }
+    }
+  },
+
+  "lineHeight": {
+    "$type": "number",
+    "none": { "$value": 1 },
+    "tight": { "$value": 1.25 },
+    "snug": { "$value": 1.375 },
+    "normal": { "$value": 1.5 },
+    "relaxed": { "$value": 1.625 },
+    "loose": { "$value": 2 }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "spacing": {
+    "$type": "dimension",
+    "0": { "$value": 0 },
+    "4": { "$value": 4 },
+    "8": { "$value": 8 },
+    "12": { "$value": 12 },
+    "16": { "$value": 16 },
+    "24": { "$value": 24 },
+    "32": { "$value": 32 },
+    "36": { "$value": 36 },
+    "40": { "$value": 40 },
+    "64": { "$value": 64 },
+    "base": { "$value": "{spacing.16}" },
+    "gutter": { "$value": "{spacing.32}" }
+  },
+
+  "radius": {
+    "$type": "dimension",
+    "xs": { "$value": 2 },
+    "sm": { "$value": 4 },
+    "md": { "$value": 8 },
+    "lg": { "$value": 12 },
+    "pill": { "$value": 160 },
+    "circle": { "$value": "50%", "$type": "percentage" },
+    "base": { "$value": "{radius.md}" }
+  },
+
+  "zindex": {
+    "$type": "number",
+    "below": { "$value": -1 },
+    "zero": { "$value": 0 },
+    "header": { "$value": 100 },
+    "nav": { "$value": 200 },
+    "dialog": { "$value": 300 }
+  }
+}

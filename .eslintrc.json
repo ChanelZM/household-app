@@ -1,0 +1,25 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": ["triple/svelte", "prettier"],
+
+  "overrides": [
+    {
+      "files": ["**/*.+(svelte|ts)"],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      }
+    },
+
+    {
+      "files": ["./**/*.+(cjs|mjs|js)"],
+      "extends": ["plugin:@typescript-eslint/disable-type-checked"],
+      "rules": {
+        "@typescript-eslint/no-use-before-define": "off",
+        "svelte/no-unused-export-let": "off"
+      }
+    }
+  ]
+}

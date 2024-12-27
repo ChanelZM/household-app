@@ -1,0 +1,22 @@
+# dependencies
+/node_modules
+
+# build
+/.svelte-kit
+/build
+
+# local env files
+.env
+
+# playwright
+**/test-results/
+**/playwright-report/
+**/blob-report/
+**/playwright/.cache/
+
+# design tokens
+src/styles/base/root-variables.scss
+src/styles/abstracts/variables.scss
+src/styles/themes/
+src/core/tokens.json
+src/core/constants/tokens.js

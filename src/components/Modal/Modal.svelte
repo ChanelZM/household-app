@@ -1,0 +1,117 @@
+<script lang="ts">
+  import { createEventDispatcher } from "svelte";
+
+  export let show: boolean;
+
+  let modal: HTMLDivElement;
+
+  const dispatch = createEventDispatcher<{ close: void }>();
+
+  function onClickOutside(e: MouseEvent) {
+    if (!modal.contains(e.target as Node)) {
+      dispatch("close");
+    }
+  }
+</script>
+
+{#if show}
+  <dialog open>
+    <div
+      class="wrapper"
+      role="presentation"
+      on:click={(e) => onClickOutside(e)}
+    >
+      <div class="modal" bind:this={modal}>
+        <button
+          data-testid="close-button"
+          class="close-button"
+          type="button"
+          on:click={() => dispatch("close")}
+        >
+          X
+        </button>
+
+        <div class="modal-body">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </dialog>
+{/if}
+
+<style lang="scss">
+  @use "$styles/abstracts" as *;
+
+  .wrapper {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba($color-neutral-700, 0.4);
+  }
+
+  .modal {
+    $spacing-x: 1.5em;
+    $spacing-y: 2em;
+
+    position: relative;
+    z-index: 1;
+
+    overflow: hidden;
+    display: flex;
+
+    width: 100%;
+    max-width: 24rem;
+    height: fit-content;
+    margin: auto;
+    padding: var(--spacing-32) var(--spacing-24);
+
+    background-color: var(--color-white);
+    border-radius: 1rem;
+  }
+
+  .modal-body {
+    display: block;
+    width: 100%;
+  }
+
+  .close-button {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+
+    width: auto;
+    padding: 2rem 2rem 0 0;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      bottom: px(-2);
+      left: px(-7);
+
+      width: px(24);
+      height: px(24);
+
+      border-radius: 50%;
+    }
+
+    &:hover {
+      color: rgb(var(--color-neutral-700) 0.6);
+    }
+
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    > :global(*) {
+      position: relative;
+    }
+  }
+</style>

@@ -1,0 +1,47 @@
+//// This file contains all global base styling of elements, if any.
+
+body {
+  height: 100%;
+  min-height: 100dvh;
+  background-color: var(--tc-background-primary);
+
+  &:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  @supports (padding-top: env(safe-area-inset-top)) {
+    min-height: calc(100% + var(--safe-area-inset-top));
+  }
+}
+
+img {
+  shape-margin: 1rem;
+
+  max-width: 100%;
+  height: auto;
+
+  font-style: italic;
+  vertical-align: middle;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+a {
+  color: var(--tc-text-primary);
+}
+
+strong {
+  font-weight: var(--font-weight-bold);
+}
+
+small {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-light);
+}
+
+button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}

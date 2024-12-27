@@ -1,0 +1,8 @@
+// global sass functions go here
+
+@use "sass:color";
+
+@function to-rgb($color) {
+  @return color.channel($color, "red") + " " + color.channel($color, "green") +
+    " " + color.channel($color, "blue");
+}

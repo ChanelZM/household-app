@@ -1,0 +1,12 @@
+{
+  "breakpoint": {
+    "$type": "dimension",
+    "small-phone": { "$value": 320 },
+    "phone": { "$value": 470 },
+    "small-tablet": { "$value": 768 },
+    "tablet": { "$value": 920 },
+    "tablet-landscape": { "$value": 1024 },
+    "laptop": { "$value": 1200 },
+    "laptop-big": { "$value": 1440 }
+  }
+}

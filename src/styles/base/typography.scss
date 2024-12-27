@@ -1,0 +1,12 @@
+// This file contains all global typography.
+
+:root {
+  font-family: var(--font-family-suisse);
+  font-optical-sizing: auto;
+}
+
+body {
+  font-size: var(--font-size-base);
+  -webkit-font-smoothing: antialiased;
+  color: var(--tc-text-primary);
+}

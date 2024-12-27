@@ -1,0 +1,25 @@
+{
+  "tc": {
+    "$type": "color",
+    "background": {
+      "primary": { "$value": "{color.neutral.700}" }
+    },
+    "text": {
+      "primary": { "$value": "{color.white}" },
+      "secondary": { "$value": "{color.neutral.400}" },
+      "tertiary": { "$value": "{color.neutral.500}" },
+      "quaternary": { "$value": "{color.neutral.200}" },
+      "quinary": { "$value": "{color.neutral.500}" }
+    },
+    "modal": {
+      "background": { "$value": "{color.neutral.600}" }
+    },
+    "input": {
+      "border": { "$value": "{color.neutral.400}" }
+    },
+    "decoration": { "$value": "{color.neutral.600}" },
+    "tag": { "$value": "{color.neutral.600}" },
+    "error": { "$value": "{color.error.100}" },
+    "success": { "$value": "{color.success.100}" }
+  }
+}

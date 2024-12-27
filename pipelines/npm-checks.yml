@@ -1,0 +1,43 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+  - main
+
+pool:
+  vmImage: "ubuntu-latest"
+
+steps:
+  - task: UseNode@1
+    inputs:
+      version: "20.x"
+    displayName: "Install Node.js"
+  - script: |
+      npm audit --omit=dev
+    displayName: "Audit production packages"
+  - script: |
+      npx lockfile-lint --path package-lock.json --allowed-hosts registry.npmjs.org
+    displayName: "Lint package lock files"
+  - script: |
+      npm ci --audit=false
+    displayName: "Install npm packages"
+  - script: |
+      npm run tokens
+    displayName: "Build design tokens"
+  - script: |
+      npm run prettier
+    displayName: "Prettier check"
+  - script: |
+      npm run lint:css
+    displayName: "Stylelint check"
+  - script: |
+      npm run lint:eslint
+    displayName: "ESLint check"
+  - script: |
+      npm run lint:tsc
+    displayName: "TypeScript check"
+  - script: |
+      npm run lint:svelte-check
+    displayName: "Svelte check"
