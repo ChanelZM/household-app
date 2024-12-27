@@ -25,7 +25,9 @@
 </script>
 
 <div class="heading">
-  <Text variant="h1" styling="heading1" className="header">Title</Text>
+  <Text variant="h1" styling="heading1" className="header"
+    >Huishouden Saarloos-Mepschen</Text
+  >
 
   <div class="actions">
     <Button on:click={openModal} testId="todoheading-add-button">

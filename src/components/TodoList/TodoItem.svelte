@@ -26,7 +26,7 @@
   }>();
 </script>
 
-<Card>
+<Card {done}>
   <article class="wrapper" class:done>
     <div class="checkbox">
       <Checkbox
@@ -34,7 +34,7 @@
         on:change={() => dispatch("done")}
         disabled={isDeleting || isDoneChanging}
       >
-        {done ? "Open" : "Done"}
+        {done ? "Done" : "Open"}
       </Checkbox>
     </div>
     <div class="header">
