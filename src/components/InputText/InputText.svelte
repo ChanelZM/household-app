@@ -9,14 +9,12 @@
 
 <style lang="scss">
   input {
-    padding: 0.5em 0.8em 0.5em 0;
+    padding: 0.8rem;
     border-width: 0;
-    border-bottom: 2px solid black;
-    border-radius: 0;
+    border-radius: var(--radius-md);
 
     &:focus-visible {
-      border-color: var(--color-purple-500);
-      outline: none;
+      outline: 5px solid var(--tc-focus);
     }
   }
 </style>

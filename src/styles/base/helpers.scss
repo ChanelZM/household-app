@@ -1,1 +1,8 @@
-// This file contains all global helper classes, if any.
+@use "sass:math";
+@use "sass:list";
+
+$z-index: (modal, button-text, button-after, button-before, block);
+
+@function z-index($key) {
+  @return list.length($z-index) - list.index($z-index, $key);
+}

@@ -30,7 +30,7 @@
 
   <div class="actions">
     <Button on:click={openModal} testId="todoheading-add-button">
-      Add todo
+      Add task
     </Button>
   </div>
 

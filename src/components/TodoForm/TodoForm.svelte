@@ -9,6 +9,7 @@
   import Modal from "$components/Modal/Modal.svelte";
   import Select from "$components/Select/Select.svelte";
   import SelectOption from "$components/Select/SelectOption.svelte";
+  import Text from "$components/Text/Text.svelte";
 
   export let projects: Project[] = [];
   export let showModal = false;
@@ -22,9 +23,8 @@
 </script>
 
 <Modal show={showModal} on:close>
+  <Text variant="h1" styling="heading2">Add task</Text>
   <form on:submit|preventDefault class="form">
-    <h1 class="title">Add todo</h1>
-
     <FormRow>
       <FormLabel forId="description" text="Description" />
       <InputText
@@ -44,23 +44,26 @@
         testId="todoform-input"
       />
     </FormRow>
-    <FormLabel forId="projects" text="Select project" />
-    <Select
-      id="projects"
-      value={projectId}
-      required
-      testId="todoform-select-input"
-    >
-      {#each projects as project}
-        <SelectOption value={project.id} text={project.name} />
-      {/each}
-    </Select>
+    <FormRow>
+      <FormLabel forId="projects" text="Select project" />
+      <Select
+        id="projects"
+        value={projectId}
+        required
+        testId="todoform-select-input"
+      >
+        {#each projects as project}
+          <SelectOption value={project.id} text={project.name} />
+        {/each}
+      </Select>
+    </FormRow>
 
     <div class="buttons">
       <Button
         type="button"
         disabled={isLoading}
         testId="cancelToDo-button"
+        variant="tertiary"
         on:click={() => dispatch("close")}>Cancel</Button
       >
       <Button type="submit" testId="todoform-submit-button"
@@ -74,17 +77,14 @@
   .form {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-  }
-
-  .title {
-    margin: 0;
-    font-size: 1.5rem;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
   }
 
   .buttons {
     display: flex;
-    gap: 1em;
+    gap: 1rem;
     justify-content: flex-end;
+    margin-top: 1rem;
   }
 </style>

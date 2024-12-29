@@ -15,7 +15,7 @@
 </script>
 
 {#if show}
-  <dialog open>
+  <dialog open class="container">
     <div
       class="wrapper"
       role="presentation"
@@ -41,10 +41,17 @@
 
 <style lang="scss">
   @use "$styles/abstracts" as *;
+  @use "$styles/base/helpers" as *;
+
+  .container {
+    position: fixed;
+    z-index: z-index(modal);
+    inset: 0;
+    color: var(--tc-text-primary);
+  }
 
   .wrapper {
     position: fixed;
-    z-index: 1000;
     top: 0;
     left: 0;
 
@@ -63,7 +70,6 @@
     $spacing-y: 2em;
 
     position: relative;
-    z-index: 1;
 
     overflow: hidden;
     display: flex;
@@ -74,8 +80,8 @@
     margin: auto;
     padding: var(--spacing-32) var(--spacing-24);
 
-    background-color: var(--color-white);
-    border-radius: 1rem;
+    background-color: var(--tc-modal-background);
+    border-radius: var(--radius-lg);
   }
 
   .modal-body {

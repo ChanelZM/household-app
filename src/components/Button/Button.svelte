@@ -5,7 +5,7 @@
 
   export let type: "button" | "submit" = "button";
   export let disabled: boolean = false;
-  export let variant: "primary" | "secondary" = "primary";
+  export let variant: "primary" | "secondary" | "tertiary" = "primary";
   export let small: boolean = false;
   export let fullwidth: boolean = false;
   export let testId: string;
@@ -28,7 +28,9 @@
 </button>
 
 <style lang="scss">
+  @use "$styles/base/helpers" as *;
   @use "sass:color";
+  @use "sass:list";
 
   .button {
     cursor: pointer;
@@ -64,7 +66,7 @@
     }
 
     &::before {
-      z-index: 0;
+      z-index: z-index(button-before);
     }
 
     &::after {
@@ -114,6 +116,24 @@
       &:hover {
         &::after {
           background-color: var(--tc-button-secondary-hover);
+        }
+      }
+    }
+
+    &.tertiary {
+      color: var(--tc-button-tertiary-text);
+
+      &::after {
+        background-color: var(--tc-button-tertiary-background);
+      }
+
+      &::before {
+        background-color: var(--tc-button-tertiary-shadow);
+      }
+
+      &:hover {
+        &::after {
+          background-color: var(--tc-button-tertiary-hover);
         }
       }
     }
