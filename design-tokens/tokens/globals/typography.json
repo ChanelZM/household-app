@@ -2,12 +2,10 @@
   "font": {
     "family": {
       "$type": "fontFamily",
-      "suisseLight": { "$value": "'Suisse Intl Light', sans-serif" },
-      "suisse": { "$value": "'Suisse Intl', sans-serif" },
-      "suisseMedium": { "$value": "'Suisse Intl Medium', sans-serif" },
-      "suisseBook": { "$value": "'Suisse Intl Book', sans-serif" },
-      "grotesk": { "$value": "'FK Grotesk Mono', sans-serif" },
-      "groteskMedium": { "$value": "'FK Grotesk Mono Medium', sans-serif" },
+      "quicksand-light": { "$value": "'Quicksand Light', sans-serif" },
+      "quicksand": { "$value": "'Quicksand', sans-serif" },
+      "quicksand-medium": { "$value": "'Quicksand Medium', sans-serif" },
+      "quicksand-bold": { "$value": "'Quicksand Bold', sans-serif" },
       "boldena": { "$value": "'Boldena Bold', sans-serif" }
     },
     "size": {

@@ -93,35 +93,35 @@
   }
 
   .body {
-    font-family: var(--font-family-suisee);
+    font-family: var(--font-family-quicksand);
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.6;
   }
 
   .body-light {
-    font-family: var(--font-family-suisse-light);
+    font-family: var(--font-family-quicksand-light);
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-light);
     line-height: 1.6;
   }
 
   .body-sm {
-    font-family: var(--font-family-suisse-medium);
+    font-family: var(--font-family-quicksand-medium);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-medium);
     line-height: 1.6;
   }
 
   .copy {
-    font-family: var(--font-family-grotesk-medium);
+    font-family: var(--font-family-quicksand-medium);
     font-size: var(--font-size-xxs);
     font-weight: var(--font-weight-semibold);
     line-height: 1.2;
   }
 
   .copy-light {
-    font-family: var(--font-family-grotesk);
+    font-family: var(--font-family-quicksand-light);
     font-size: var(--font-size-xxs);
     font-weight: var(--font-weight-regular);
     line-height: 1.2;

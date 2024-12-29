@@ -1,58 +1,40 @@
-// Suisse Intl Light Font face
+// Quicksand Light Font face
 @font-face {
-  font-family: "Suisse Intl Light";
+  font-family: "Quicksand Light";
   font-weight: 300;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/Suisse_Intl_Light.woff2") format("woff2");
+  src: url("/fonts/Quicksand-Light.woff2") format("woff2");
 }
 
-// Suisse Intl Regular Font face
+// Quicksand Regular Font face
 @font-face {
-  font-family: "Suisse Intl";
+  font-family: Quicksand;
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/Suisse_Intl_Regular.woff2") format("woff2");
+  src: url("/fonts/Quicksand-Regular.woff2") format("woff2");
 }
 
-// Suisse Intl Medium Font face
+// Quicksand Medium Font face
 @font-face {
-  font-family: "Suisse Intl Medium";
+  font-family: "Quicksand Medium";
   font-weight: 450;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/Suisse_Intl_Medium.woff2") format("woff2");
+  src: url("/fonts/Quicksand-Medium.woff2") format("woff2");
 }
 
-// Suisse Intl Book Font face
+// Quicksand Bold Font face
 @font-face {
-  font-family: "Suisse Intl Book";
+  font-family: "Quicksand Bold";
   font-weight: 500;
   font-style: normal;
   font-display: swap;
-  src: url("/fonts/Suisse_Intl_Book.woff2") format("woff2");
+  src: url("/fonts/Quicksand-Bold.woff2") format("woff2");
 }
 
-// FK Grotesk Mono Font face
-@font-face {
-  font-family: "FK Grotesk Mono";
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-  src: url("/fonts/FK_Grotesk_Monospaced.woff2") format("woff2");
-}
-
-// FK Grotesk Mono Medium Font face
-@font-face {
-  font-family: "FK Grotesk Mono Medium";
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-  src: url("/fonts/FK_Grotesk_Monospaced_Medium.woff2") format("woff2");
-}
-
-// FK Grotesk Mono Medium Font face
+// Boldena Font face
 @font-face {
   font-family: "Boldena Bold";
   font-weight: 700;
