@@ -10,7 +10,7 @@
   $: completedTodos = sortedTodos.filter((todo) => todo.done === true);
 </script>
 
-<h2>Todo</h2>
+<h2>Deze week open</h2>
 <ul class="list">
   {#each unCompletedTodos as todo}
     <li class="list-item">
@@ -31,7 +31,7 @@
 
 <hr class="line" />
 
-<h2>Gedaan</h2>
+<h2>Deze week gedaan</h2>
 <ul class="list">
   {#each completedTodos as todo}
     <li class="list-item">
