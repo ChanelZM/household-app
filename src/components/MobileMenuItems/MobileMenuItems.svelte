@@ -2,7 +2,6 @@
   import { page } from "$app/stores";
   import MainNavigation from "$components/MainNavigation/MainNavigation.svelte";
   import Text from "$components/Text/Text.svelte";
-  import ThemeSwitcher from "$components/ThemeSwitcher/ThemeSwitcher.svelte";
 
   const { pathname } = $page.url;
 </script>
@@ -17,8 +16,6 @@
     <div class="heading">
       <Text variant="h3" styling="body-sm">Theme</Text>
     </div>
-
-    <ThemeSwitcher />
   </section>
 
   <section class="container spacing">

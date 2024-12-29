@@ -1,8 +1,6 @@
 <script lang="ts">
   import MainNavigation from "$components/MainNavigation/MainNavigation.svelte";
   import MobileMenu from "$components/MobileMenu/MobileMenu.svelte";
-  import ThemeSwitcher from "$components/ThemeSwitcher/ThemeSwitcher.svelte";
-  import VectorGraphic from "$components/VectorGraphic/VectorGraphic.svelte";
 </script>
 
 <div class="wrapper">
@@ -10,14 +8,10 @@
     <slot name="project-list" slot="project-list" />
   </MobileMenu>
 
-  <a href="/" aria-label="Go to home" class="logo">
-    <VectorGraphic name="illustration-logo" size={4} />
-  </a>
+  <a href="/" aria-label="Go to home" class="logo"> Household app </a>
 
   <div class="items">
     <MainNavigation />
-
-    <ThemeSwitcher />
   </div>
 </div>
 
@@ -26,14 +20,13 @@
 
   .wrapper {
     display: flex;
+    align-items: center;
     height: 6rem;
     padding: 0 var(--spacing-16);
-    border-bottom: 1px solid var(--tc-decoration);
   }
 
   .logo {
     display: flex;
-    height: 6rem;
   }
 
   .items {

@@ -5,8 +5,7 @@
 
   export let type: "button" | "submit" = "button";
   export let disabled: boolean = false;
-  export let variant: "primary" | "primary-outline" | "primary-ghost" =
-    "primary";
+  export let variant: "primary" | "secondary" = "primary";
   export let small: boolean = false;
   export let fullwidth: boolean = false;
   export let testId: string;
@@ -23,12 +22,18 @@
   aria-disabled={disabled}
   {type}
 >
-  <slot />
+  <span class="button-content">
+    <slot />
+  </span>
 </button>
 
 <style lang="scss">
+  @use "sass:color";
+
   .button {
     cursor: pointer;
+
+    position: relative;
 
     display: flex;
     gap: var(--spacing-16);
@@ -38,59 +43,83 @@
     height: 3.5rem;
     padding: 1rem 2rem;
 
-    font-family: var(--font-family-suisse-book);
-    font-size: var(--font-size-base);
+    font-family: var(--font-family-boldena);
+    font-size: var(--font-size-md);
     font-weight: var(--font-weight-semibold);
     line-height: 1;
     color: var(--tc-background-primary);
+    text-transform: lowercase;
     text-wrap: nowrap;
 
-    background-color: var(--tc-text-primary);
-    border-radius: var(--radius-pill);
+    border-radius: var(--radius-md);
 
     transition: 120ms linear;
 
-    &.primary {
-      color: var(--tc-background-primary);
-      background-color: var(--tc-text-primary);
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-md);
     }
 
-    &.primary-outline {
-      color: var(--tc-text-primary);
-      background-color: transparent;
-      outline: 1px solid var(--tc-text-primary);
+    &::before {
+      z-index: 0;
+    }
 
-      &:disabled {
-        outline: 1px solid var(--tc-text-tertiary);
+    &::after {
+      z-index: 1;
+      transform: translate(-5px, -5px);
+    }
+
+    &:active {
+      &::after {
+        transform: translate(0, 0);
       }
     }
 
-    &.primary-ghost {
-      color: var(--tc-text-primary);
-      background-color: transparent;
-      outline: 1px solid transparent;
+    &:focus-visible {
+      outline: 5px solid var(--tc-focus);
     }
 
-    &.is-small {
-      height: 2.75rem;
-      padding: 0.625rem 1.25rem;
+    &.primary {
+      color: var(--tc-button-primary-text);
+
+      &::after {
+        background-color: var(--tc-button-primary-background);
+      }
+
+      &::before {
+        background-color: var(--tc-button-primary-shadow);
+      }
+
+      &:hover {
+        &::after {
+          background-color: var(--tc-button-primary-hover);
+        }
+      }
+    }
+
+    &.secondary {
+      color: var(--tc-button-secondary-text);
+
+      &::after {
+        background-color: var(--tc-button-secondary-background);
+      }
+
+      &::before {
+        background-color: var(--tc-button-secondary-shadow);
+      }
+
+      &:hover {
+        &::after {
+          background-color: var(--tc-button-secondary-hover);
+        }
+      }
     }
 
     &.fullwidth {
       width: 100%;
-    }
-
-    &:hover {
-      opacity: 0.8;
-    }
-
-    &:active {
-      scale: 0.95;
-    }
-
-    &:focus-visible {
-      outline: 0.1em solid var(--tc-text-primary);
-      outline-offset: 0.1em;
     }
 
     &:disabled {
@@ -99,6 +128,15 @@
       &:not(.primary-outline) {
         opacity: 0.8;
       }
+    }
+  }
+
+  .button-content {
+    z-index: 2;
+    transform: translate(-5px, -5px);
+
+    .button:active & {
+      transform: translate(0, 0);
     }
   }
 </style>

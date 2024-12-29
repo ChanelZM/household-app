@@ -1,8 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import type { TodoDto } from "$services/todos/dtoTypes/api-get.js";
-  import ProjectList from "$components/ProjectList/ProjectList.svelte";
-  import Text from "$components/Text/Text.svelte";
   import TodoForm from "$components/TodoForm/TodoForm.svelte";
   import TodoList from "$components/TodoList/TodoList.svelte";
   import TodoHeadingConnector from "$connectors/TodoHeadingConnector.svelte";
@@ -16,7 +14,7 @@
 
   const todosStore = asyncStore<TodoDto[]>();
   const updateStore = asyncStore();
-  const { setActiveProject, activeProjects } = projectsStore;
+  const { activeProjects } = projectsStore;
 
   $: unfilteredTodos = $todosStore.data || [];
   $: editTodo = unfilteredTodos.find((todo) => todo.id === editTodoId);
@@ -73,18 +71,9 @@
 </script>
 
 <svelte:head>
-  <title>Svelte Boilerplate</title>
+  <title>Huishouden Saarloos-Mepschen</title>
 </svelte:head>
 <div class="wrapper">
-  <aside class="filter">
-    <Text variant="h3" styling="body-sm" className="title">Projects</Text>
-    <ProjectList
-      on:toggle-project={(e) => setActiveProject(e.detail)}
-      projects={data.projects}
-      activeProjects={$projectsStore.activeProjects}
-    />
-  </aside>
-
   <div class="list">
     <TodoHeadingConnector
       projects={data.projects}
@@ -122,24 +111,6 @@
     display: flex;
     justify-content: center;
     padding: 3rem var(--spacing-16);
-  }
-
-  .filter :global(.title) {
-    color: var(--tc-text-primary);
-  }
-
-  .filter {
-    display: none;
-    gap: var(--spacing-16);
-
-    min-width: 20rem;
-    margin-top: var(--spacing-16);
-    padding: 0 var(--spacing-24);
-
-    @include responsive-min($breakpoint-tablet) {
-      display: flex;
-      flex-direction: column;
-    }
   }
 
   .list {
