@@ -18,6 +18,18 @@
     "input": {
       "border": { "$value": "{color.neutral.200}" }
     },
+    "button": {
+      "primary": {
+        "background": { "$value": "{color.blue.200}" },
+        "text": { "$value": "{color.black}" },
+        "shadow": { "$value": "{color.blue.500}" }
+      },
+      "secondary": {
+        "background": { "$value": "{color.white}" },
+        "text": { "$value": "{color.black}" },
+        "shadow": { "$value": "{color.blue.200}" }
+      }
+    },
     "decoration": { "$value": "{color.blue.200}" },
     "tag": { "$value": "{color.blue.200}" },
     "error": { "$value": "{color.error.100}" },

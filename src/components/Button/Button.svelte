@@ -23,12 +23,16 @@
   aria-disabled={disabled}
   {type}
 >
-  <slot />
+  <span class="button-content">
+    <slot />
+  </span>
 </button>
 
 <style lang="scss">
   .button {
     cursor: pointer;
+
+    position: relative;
 
     display: flex;
     gap: var(--spacing-16);
@@ -45,47 +49,47 @@
     color: var(--tc-background-primary);
     text-wrap: nowrap;
 
-    background-color: var(--tc-text-primary);
-    border-radius: var(--radius-pill);
+    border-radius: var(--radius-md);
 
     transition: 120ms linear;
 
-    &.primary {
-      color: var(--tc-background-primary);
-      background-color: var(--tc-text-primary);
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-md);
     }
 
-    &.primary-outline {
-      color: var(--tc-text-primary);
-      background-color: transparent;
-      outline: 1px solid var(--tc-text-primary);
+    &::before {
+      z-index: 0;
+    }
 
-      &:disabled {
-        outline: 1px solid var(--tc-text-tertiary);
+    &::after {
+      z-index: 1;
+      transform: translate(-5px, -5px);
+    }
+
+    &:active {
+      &::after {
+        transform: translate(0, 0);
       }
     }
 
-    &.primary-ghost {
-      color: var(--tc-text-primary);
-      background-color: transparent;
-      outline: 1px solid transparent;
-    }
+    &.primary {
+      color: var(--tc-button-primary-text);
 
-    &.is-small {
-      height: 2.75rem;
-      padding: 0.625rem 1.25rem;
+      &::after {
+        background-color: var(--tc-button-primary-background);
+      }
+
+      &::before {
+        background-color: var(--tc-button-primary-shadow);
+      }
     }
 
     &.fullwidth {
       width: 100%;
-    }
-
-    &:hover {
-      opacity: 0.8;
-    }
-
-    &:active {
-      scale: 0.95;
     }
 
     &:focus-visible {
@@ -99,6 +103,15 @@
       &:not(.primary-outline) {
         opacity: 0.8;
       }
+    }
+  }
+
+  .button-content {
+    z-index: 2;
+    transform: translate(-5px, -5px);
+
+    .button:active & {
+      transform: translate(0, 0);
     }
   }
 </style>

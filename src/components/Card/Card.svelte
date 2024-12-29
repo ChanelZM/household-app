@@ -10,7 +10,7 @@
   .card {
     padding: var(--spacing-24);
     background: var(--tc-background-secondary);
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     box-shadow: 0 0 30px rgb(0 0 0 / 10%);
   }
 
