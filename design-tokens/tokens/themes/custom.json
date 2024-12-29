@@ -6,8 +6,8 @@
       "secondary": { "$value": "{color.white}" }
     },
     "text": {
-      "primary": { "$value": "{color.black}" },
-      "secondary": { "$value": "{color.neutral.100}" },
+      "primary": { "$value": "{color.blue.800}" },
+      "secondary": { "$value": "{color.white}" },
       "tertiary": { "$value": "{color.neutral.200}" },
       "quaternary": { "$value": "{color.neutral.200}" },
       "quinary": { "$value": "{color.neutral.500}" }
@@ -20,19 +20,22 @@
     },
     "button": {
       "primary": {
-        "background": { "$value": "{color.blue.200}" },
-        "text": { "$value": "{color.black}" },
+        "hover": { "$value": "{color.blue.200}" },
+        "background": { "$value": "{color.blue.300}" },
+        "text": { "$value": "{color.blue.800}" },
         "shadow": { "$value": "{color.blue.500}" }
       },
       "secondary": {
-        "background": { "$value": "{color.white}" },
-        "text": { "$value": "{color.black}" },
-        "shadow": { "$value": "{color.blue.200}" }
+        "hover": { "$value": "{color.blue.200}" },
+        "background": { "$value": "{color.blue.100}" },
+        "text": { "$value": "{color.blue.800}" },
+        "shadow": { "$value": "{color.blue.300}" }
       }
     },
-    "decoration": { "$value": "{color.blue.200}" },
-    "tag": { "$value": "{color.blue.200}" },
+    "decoration": { "$value": "{color.blue.300}" },
+    "tag": { "$value": "{color.blue.300}" },
     "error": { "$value": "{color.error.100}" },
-    "success": { "$value": "{color.success.100}" }
+    "success": { "$value": "{color.success.100}" },
+    "focus": { "$value": "{color.yellow.500}" }
   }
 }

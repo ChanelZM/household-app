@@ -81,7 +81,7 @@
           type="button"
           small
           fullwidth
-          variant="primary-outline"
+          variant="secondary"
           disabled={isDeleting || isDoneChanging}
           testId="todoitem-button-edit"
         >

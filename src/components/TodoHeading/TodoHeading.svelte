@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { Project } from "$models/project";
   import TodoForm from "$components/TodoForm/TodoForm.svelte";
-  import VectorGraphic from "$components/VectorGraphic/VectorGraphic.svelte";
   import Button from "../Button/Button.svelte";
   import Text from "../Text/Text.svelte";
 
@@ -32,7 +31,6 @@
   <div class="actions">
     <Button on:click={openModal} testId="todoheading-add-button">
       Add todo
-      <VectorGraphic name="icon-add" className="button-icon" />
     </Button>
   </div>
 

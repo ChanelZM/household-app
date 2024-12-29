@@ -5,8 +5,7 @@
 
   export let type: "button" | "submit" = "button";
   export let disabled: boolean = false;
-  export let variant: "primary" | "primary-outline" | "primary-ghost" =
-    "primary";
+  export let variant: "primary" | "secondary" = "primary";
   export let small: boolean = false;
   export let fullwidth: boolean = false;
   export let testId: string;
@@ -29,6 +28,8 @@
 </button>
 
 <style lang="scss">
+  @use "sass:color";
+
   .button {
     cursor: pointer;
 
@@ -42,11 +43,12 @@
     height: 3.5rem;
     padding: 1rem 2rem;
 
-    font-family: var(--font-family-suisse-book);
-    font-size: var(--font-size-base);
+    font-family: var(--font-family-boldena);
+    font-size: var(--font-size-md);
     font-weight: var(--font-weight-semibold);
     line-height: 1;
     color: var(--tc-background-primary);
+    text-transform: lowercase;
     text-wrap: nowrap;
 
     border-radius: var(--radius-md);
@@ -76,6 +78,10 @@
       }
     }
 
+    &:focus-visible {
+      outline: 5px solid var(--tc-focus);
+    }
+
     &.primary {
       color: var(--tc-button-primary-text);
 
@@ -86,15 +92,34 @@
       &::before {
         background-color: var(--tc-button-primary-shadow);
       }
+
+      &:hover {
+        &::after {
+          background-color: var(--tc-button-primary-hover);
+        }
+      }
+    }
+
+    &.secondary {
+      color: var(--tc-button-secondary-text);
+
+      &::after {
+        background-color: var(--tc-button-secondary-background);
+      }
+
+      &::before {
+        background-color: var(--tc-button-secondary-shadow);
+      }
+
+      &:hover {
+        &::after {
+          background-color: var(--tc-button-secondary-hover);
+        }
+      }
     }
 
     &.fullwidth {
       width: 100%;
-    }
-
-    &:focus-visible {
-      outline: 0.1em solid var(--tc-text-primary);
-      outline-offset: 0.1em;
     }
 
     &:disabled {
