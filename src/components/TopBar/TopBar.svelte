@@ -17,7 +17,7 @@
   <div class="items">
     <MainNavigation />
 
-    <ThemeSwitcher />
+    <!-- <ThemeSwitcher /> -->
   </div>
 </div>
 

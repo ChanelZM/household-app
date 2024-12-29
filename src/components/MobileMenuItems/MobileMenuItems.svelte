@@ -18,7 +18,7 @@
       <Text variant="h3" styling="body-sm">Theme</Text>
     </div>
 
-    <ThemeSwitcher />
+    <!-- <ThemeSwitcher /> -->
   </section>
 
   <section class="container spacing">
