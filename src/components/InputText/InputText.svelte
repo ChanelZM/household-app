@@ -3,9 +3,10 @@
   export let name: string;
   export let value: string;
   export let testId = "";
+  export let disabled = false;
 </script>
 
-<input type="text" {id} {name} bind:value data-testid={testId} />
+<input type="text" {id} {name} bind:value data-testid={testId} {disabled} />
 
 <style lang="scss">
   input {
@@ -15,6 +16,10 @@
 
     &:focus-visible {
       outline: 5px solid var(--tc-focus);
+    }
+
+    &:disabled {
+      background-color: var(--tc-input-disabled);
     }
   }
 </style>

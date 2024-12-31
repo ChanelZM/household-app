@@ -16,11 +16,10 @@
   export let frequencyValue = "";
   export let isLoading = false;
   export let submitLabel;
-
-  let currentFrequency = frequency;
+  export let hourEstimate = 0;
 
   $: max = (() => {
-    switch (currentFrequency) {
+    switch (frequency) {
       case "days":
         return 31;
       case "weeks":
@@ -54,7 +53,7 @@
         id="frequency"
         testId="todoform-frequency"
         required
-        bind:value={currentFrequency}
+        bind:value={frequency}
       >
         <SelectOption value="once" text="Eenmalig" />
         <SelectOption value="days" text="Dagelijks" />
@@ -62,29 +61,39 @@
         <SelectOption value="months" text="Maandelijks" />
       </Select>
     </FormRow>
-    {#if currentFrequency !== "once"}
-      <FormRow>
-        <span>Elke</span>
-        <span>
-          <InputNumber
-            id="frequencyValue"
-            name="frequencyValue"
-            value={frequencyValue}
-            min="1"
-            max={max.toString()}
-          />
-        </span>
-        <span>
-          {#if currentFrequency === "days"}
-            dagen
-          {:else if currentFrequency === "weeks"}
-            weken
-          {:else if currentFrequency === "months"}
-            maanden
-          {/if}
-        </span>
-      </FormRow>
-    {/if}
+    <FormRow direction="row" align="center">
+      <FormLabel forId="frequencyValue" text="Elke" />
+      <span>
+        <InputNumber
+          id="frequencyValue"
+          name="frequencyValue"
+          value={frequencyValue}
+          min="1"
+          max={max.toString()}
+          disabled={frequency === "once"}
+        />
+      </span>
+      <span>
+        {#if frequency === "days"}
+          dagen
+        {:else if frequency === "weeks"}
+          weken
+        {:else if frequency === "months"}
+          maanden
+        {:else}
+          dagen/weken/maanden
+        {/if}
+      </span>
+    </FormRow>
+    <FormRow>
+      <FormLabel forId="estimate" text="Tijd nodig (in uren)" />
+      <InputNumber
+        id="estimate"
+        name="estimate"
+        step="0.25"
+        value={hourEstimate.toString()}
+      />
+    </FormRow>
 
     <div class="buttons">
       <Button

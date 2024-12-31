@@ -6,6 +6,7 @@
   export let min = "";
   export let max = "";
   export let step = "1";
+  export let disabled = false;
 </script>
 
 <input
@@ -17,6 +18,7 @@
   {step}
   bind:value
   data-testid={testId}
+  {disabled}
 />
 
 <style lang="scss">
@@ -27,6 +29,10 @@
 
     &:focus-visible {
       outline: 5px solid var(--tc-focus);
+    }
+
+    &:disabled {
+      background-color: var(--tc-input-disabled);
     }
   }
 </style>

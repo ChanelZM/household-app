@@ -16,7 +16,8 @@
       "background": { "$value": "{color.blue.100}" }
     },
     "input": {
-      "border": { "$value": "{color.neutral.200}" }
+      "background": { "$value": "{color.white}" },
+      "disabled": { "$value": "{color.neutral.100}" }
     },
     "button": {
       "primary": {

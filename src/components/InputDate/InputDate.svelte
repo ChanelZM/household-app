@@ -16,5 +16,9 @@
     &:focus-visible {
       outline: 5px solid var(--tc-focus);
     }
+
+    &:disabled {
+      background-color: var(--tc-input-disabled);
+    }
   }
 </style>
