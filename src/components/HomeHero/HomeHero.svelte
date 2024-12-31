@@ -27,7 +27,7 @@
   >
 
   <div class="actions">
-    <Button on:click={openModal} testId="todoheading-add-button">
+    <Button on:click={openModal} fullwidth testId="todoheading-add-button">
       Taak toevoegen
     </Button>
   </div>
@@ -42,6 +42,9 @@
 </div>
 
 <style lang="scss">
+  @use "$styles/base/helpers" as *;
+  @use "$styles/abstracts" as *;
+
   .heading :global(.header) {
     color: var(--tc-text-primary);
   }
@@ -60,6 +63,21 @@
   }
 
   .actions {
+    position: fixed;
+    z-index: z-index(button-text);
+    right: 0;
+    bottom: 0;
+    left: 0;
+
     margin-left: auto;
+    padding: var(--spacing-16);
+
+    background-color: var(--tc-background-secondary);
+
+    @include responsive-min($breakpoint-small-tablet) {
+      position: static;
+      z-index: z-index(block);
+      padding: 0;
+    }
   }
 </style>

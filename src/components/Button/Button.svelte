@@ -43,6 +43,8 @@
     justify-content: center;
 
     height: 3.5rem;
+    margin-top: 5px;
+    margin-left: 5px;
     padding: 1rem 2rem;
 
     font-family: var(--font-family-boldena);
@@ -138,7 +140,7 @@
       }
     }
 
-    &.fullwidth {
+    &.is-fullwidth {
       width: 100%;
     }
 

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
   import type { Project } from "$models/project";
-  import TodoHeading from "$components/TodoHeading/TodoHeading.svelte";
+  import HomeHero from "$components/HomeHero/HomeHero.svelte";
   import { addTodo } from "$services/todos";
   import asyncStore from "$stores/asyncStore";
 
@@ -29,7 +29,7 @@
   }
 </script>
 
-<TodoHeading
+<HomeHero
   on:refresh
   on:submit={onSubmit}
   isLoading={$addTodoStore.status === "pending"}

@@ -1,7 +1,15 @@
 @use "sass:math";
 @use "sass:list";
 
-$z-index: (menu, modal, button-text, button-after, button-before, block);
+$z-index: (
+  menu,
+  modal,
+  add-button,
+  button-text,
+  button-after,
+  button-before,
+  block
+);
 
 @function z-index($key) {
   @return list.length($z-index) - list.index($z-index, $key);

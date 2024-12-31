@@ -94,12 +94,7 @@
     on:submit={onSubmit}
     showModal={!!editTodoId}
     isLoading={$updateStore.status === "pending"}
-    projects={data.projects}
     description={editTodo?.description}
-    date={editTodo?.dueDate
-      ? new Date(editTodo.dueDate).toISOString().split("T")[0]
-      : ""}
-    projectId={editTodo?.project?.id}
     submitLabel={"Updates"}
   />
 </div>
