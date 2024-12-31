@@ -30,7 +30,6 @@
 </script>
 
 <TodoHeading
-  {projects}
   on:refresh
   on:submit={onSubmit}
   isLoading={$addTodoStore.status === "pending"}

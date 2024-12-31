@@ -1,10 +1,8 @@
 <script lang="ts">
-  import type { Project } from "$models/project";
   import TodoForm from "$components/TodoForm/TodoForm.svelte";
   import Button from "../Button/Button.svelte";
   import Text from "../Text/Text.svelte";
 
-  export let projects: Project[] = [];
   export let isLoading = false;
   export let wasSuccessful = false;
 
@@ -30,7 +28,7 @@
 
   <div class="actions">
     <Button on:click={openModal} testId="todoheading-add-button">
-      Add task
+      Taak toevoegen
     </Button>
   </div>
 
@@ -40,7 +38,6 @@
     submitLabel="Add"
     {showModal}
     {isLoading}
-    {projects}
   />
 </div>
 

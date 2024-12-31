@@ -3,6 +3,7 @@
   import Button from "$components/Button/Button.svelte";
   import FormLabel from "$components/FormLabel/FormLabel.svelte";
   import FormRow from "$components/FormRow/FormRow.svelte";
+  import InputNumber from "$components/InputNumber/InputNumber.svelte";
   import InputText from "$components/InputText/InputText.svelte";
   import Modal from "$components/Modal/Modal.svelte";
   import Select from "$components/Select/Select.svelte";
@@ -11,10 +12,25 @@
 
   export let showModal = false;
   export let description = "";
-  export let frequency: "once" | "daily" | "weekly" | "monthly" = "once";
+  export let frequency: "once" | "days" | "weeks" | "months" = "once";
   export let frequencyValue = "";
   export let isLoading = false;
   export let submitLabel;
+
+  let currentFrequency = frequency;
+
+  $: max = (() => {
+    switch (currentFrequency) {
+      case "days":
+        return 31;
+      case "weeks":
+        return 4;
+      case "months":
+        return 12;
+      default:
+        return 0;
+    }
+  })();
 
   const dispatch = createEventDispatcher<{ close: void }>();
 </script>
@@ -38,31 +54,37 @@
         id="frequency"
         testId="todoform-frequency"
         required
-        value={frequency}
+        bind:value={currentFrequency}
       >
         <SelectOption value="once" text="Eenmalig" />
-        <SelectOption value="daily" text="Dagelijks" />
-        <SelectOption value="weekly" text="Wekelijks" />
-        <SelectOption value="monthly" text="Maandelijks" />
+        <SelectOption value="days" text="Dagelijks" />
+        <SelectOption value="weeks" text="Wekelijks" />
+        <SelectOption value="months" text="Maandelijks" />
       </Select>
-      {#if frequency !== "once"}
+    </FormRow>
+    {#if currentFrequency !== "once"}
+      <FormRow>
         <span>Elke</span>
-        <InputText
-          id="frequencyValue"
-          name="frequencyValue"
-          value={frequencyValue}
-        />
         <span>
-          {#if frequency === "daily"}
+          <InputNumber
+            id="frequencyValue"
+            name="frequencyValue"
+            value={frequencyValue}
+            min="1"
+            max={max.toString()}
+          />
+        </span>
+        <span>
+          {#if currentFrequency === "days"}
             dagen
-          {:else if frequency === "weekly"}
+          {:else if currentFrequency === "weeks"}
             weken
-          {:else if frequency === "monthly"}
+          {:else if currentFrequency === "months"}
             maanden
           {/if}
         </span>
-      {/if}
-    </FormRow>
+      </FormRow>
+    {/if}
 
     <div class="buttons">
       <Button

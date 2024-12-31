@@ -1,5 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
+  import VectorGraphic from "$components/VectorGraphic/VectorGraphic.svelte";
 
   export let show: boolean;
 
@@ -27,8 +28,9 @@
           class="close-button"
           type="button"
           on:click={() => dispatch("close")}
+          aria-label="Sluit modal"
         >
-          X
+          <VectorGraphic name="icon-close" />
         </button>
 
         <div class="modal-body">
@@ -78,7 +80,7 @@
     max-width: 24rem;
     height: fit-content;
     margin: auto;
-    padding: var(--spacing-32) var(--spacing-24);
+    padding: var(--spacing-24);
 
     background-color: var(--tc-modal-background);
     border-radius: var(--radius-lg);
@@ -96,7 +98,9 @@
     right: 0;
 
     width: auto;
-    padding: 2rem 2rem 0 0;
+    padding: var(--spacing-24) var(--spacing-24) 0 0;
+
+    color: var(--tc-text-primary);
 
     &::before {
       content: "";
