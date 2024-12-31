@@ -16,9 +16,9 @@
       "md": { "$value": 18 },
       "lg": { "$value": 20 },
       "xl": { "$value": 24 },
-      "xxl": { "$value": 32 },
+      "xxl": { "$value": 48 },
       "xxxl": { "$value": 56 },
-      "base": { "$value": "{font.size.sm}" }
+      "base": { "$value": "{font.size.md}" }
     },
     "weight": {
       "$type": "fontWeight",

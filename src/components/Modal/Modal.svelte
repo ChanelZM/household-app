@@ -1,5 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
+  import VectorGraphic from "$components/VectorGraphic/VectorGraphic.svelte";
 
   export let show: boolean;
 
@@ -15,7 +16,7 @@
 </script>
 
 {#if show}
-  <dialog open>
+  <dialog open class="container">
     <div
       class="wrapper"
       role="presentation"
@@ -27,8 +28,9 @@
           class="close-button"
           type="button"
           on:click={() => dispatch("close")}
+          aria-label="Sluit modal"
         >
-          X
+          <VectorGraphic name="icon-close" />
         </button>
 
         <div class="modal-body">
@@ -41,10 +43,17 @@
 
 <style lang="scss">
   @use "$styles/abstracts" as *;
+  @use "$styles/base/helpers" as *;
+
+  .container {
+    position: fixed;
+    z-index: z-index(modal);
+    inset: 0;
+    color: var(--tc-text-primary);
+  }
 
   .wrapper {
     position: fixed;
-    z-index: 1000;
     top: 0;
     left: 0;
 
@@ -63,7 +72,6 @@
     $spacing-y: 2em;
 
     position: relative;
-    z-index: 1;
 
     overflow: hidden;
     display: flex;
@@ -72,10 +80,10 @@
     max-width: 24rem;
     height: fit-content;
     margin: auto;
-    padding: var(--spacing-32) var(--spacing-24);
+    padding: var(--spacing-24);
 
-    background-color: var(--color-white);
-    border-radius: 1rem;
+    background-color: var(--tc-modal-background);
+    border-radius: var(--radius-lg);
   }
 
   .modal-body {
@@ -84,13 +92,16 @@
   }
 
   .close-button {
+    cursor: pointer;
+
     position: absolute;
-    z-index: 2;
     top: 0;
     right: 0;
 
     width: auto;
-    padding: 2rem 2rem 0 0;
+    padding: var(--spacing-24) var(--spacing-24) 0 0;
+
+    color: var(--tc-text-primary);
 
     &::before {
       content: "";

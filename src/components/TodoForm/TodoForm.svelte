@@ -1,32 +1,44 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import type { Project } from "$models/project";
   import Button from "$components/Button/Button.svelte";
   import FormLabel from "$components/FormLabel/FormLabel.svelte";
   import FormRow from "$components/FormRow/FormRow.svelte";
-  import InputDate from "$components/InputDate/InputDate.svelte";
+  import InputNumber from "$components/InputNumber/InputNumber.svelte";
   import InputText from "$components/InputText/InputText.svelte";
   import Modal from "$components/Modal/Modal.svelte";
   import Select from "$components/Select/Select.svelte";
   import SelectOption from "$components/Select/SelectOption.svelte";
+  import Text from "$components/Text/Text.svelte";
 
-  export let projects: Project[] = [];
   export let showModal = false;
   export let description = "";
+  export let frequency: "once" | "days" | "weeks" | "months" = "once";
+  export let frequencyValue = "";
   export let isLoading = false;
-  export let date = "";
-  export let projectId = "";
   export let submitLabel;
+  export let hourEstimate = 0;
+
+  $: max = (() => {
+    switch (frequency) {
+      case "days":
+        return 31;
+      case "weeks":
+        return 4;
+      case "months":
+        return 12;
+      default:
+        return 0;
+    }
+  })();
 
   const dispatch = createEventDispatcher<{ close: void }>();
 </script>
 
 <Modal show={showModal} on:close>
+  <Text variant="h1" styling="heading2">Taak toevoegen</Text>
   <form on:submit|preventDefault class="form">
-    <h1 class="title">Add todo</h1>
-
     <FormRow>
-      <FormLabel forId="description" text="Description" />
+      <FormLabel forId="description" text="Beschrijving" />
       <InputText
         id="description"
         name="description"
@@ -36,31 +48,59 @@
     </FormRow>
 
     <FormRow>
-      <FormLabel forId="dueDate" text="Due date" />
-      <InputDate
-        id="dueDate"
-        name="dueDate"
-        value={date}
-        testId="todoform-input"
+      <FormLabel forId="frequency" text="Frequentie" />
+      <Select
+        id="frequency"
+        testId="todoform-frequency"
+        required
+        bind:value={frequency}
+      >
+        <SelectOption value="once" text="Eenmalig" />
+        <SelectOption value="days" text="Dagelijks" />
+        <SelectOption value="weeks" text="Wekelijks" />
+        <SelectOption value="months" text="Maandelijks" />
+      </Select>
+    </FormRow>
+    <FormRow direction="row" align="center">
+      <FormLabel forId="frequencyValue" text="Elke" />
+      <span>
+        <InputNumber
+          id="frequencyValue"
+          name="frequencyValue"
+          value={frequencyValue}
+          min="1"
+          max={max.toString()}
+          disabled={frequency === "once"}
+        />
+      </span>
+      <span>
+        {#if frequency === "days"}
+          dagen
+        {:else if frequency === "weeks"}
+          weken
+        {:else if frequency === "months"}
+          maanden
+        {:else}
+          dagen/weken/maanden
+        {/if}
+      </span>
+    </FormRow>
+    <FormRow>
+      <FormLabel forId="estimate" text="Tijd nodig (in uren)" />
+      <InputNumber
+        id="estimate"
+        name="estimate"
+        step="0.25"
+        value={hourEstimate.toString()}
       />
     </FormRow>
-    <FormLabel forId="projects" text="Select project" />
-    <Select
-      id="projects"
-      value={projectId}
-      required
-      testId="todoform-select-input"
-    >
-      {#each projects as project}
-        <SelectOption value={project.id} text={project.name} />
-      {/each}
-    </Select>
 
     <div class="buttons">
       <Button
         type="button"
         disabled={isLoading}
         testId="cancelToDo-button"
+        variant="tertiary"
         on:click={() => dispatch("close")}>Cancel</Button
       >
       <Button type="submit" testId="todoform-submit-button"
@@ -74,17 +114,14 @@
   .form {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-  }
-
-  .title {
-    margin: 0;
-    font-size: 1.5rem;
+    gap: var(--spacing-24);
+    margin-top: var(--spacing-40);
   }
 
   .buttons {
     display: flex;
-    gap: 1em;
+    gap: var(--spacing-16);
     justify-content: flex-end;
+    margin-top: var(--spacing-16);
   }
 </style>

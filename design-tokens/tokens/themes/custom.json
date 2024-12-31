@@ -16,7 +16,8 @@
       "background": { "$value": "{color.blue.100}" }
     },
     "input": {
-      "border": { "$value": "{color.neutral.200}" }
+      "background": { "$value": "{color.white}" },
+      "disabled": { "$value": "{color.neutral.100}" }
     },
     "button": {
       "primary": {
@@ -28,6 +29,12 @@
       "secondary": {
         "hover": { "$value": "{color.blue.200}" },
         "background": { "$value": "{color.blue.100}" },
+        "text": { "$value": "{color.blue.800}" },
+        "shadow": { "$value": "{color.blue.300}" }
+      },
+      "tertiary": {
+        "hover": { "$value": "{color.blue.200}" },
+        "background": { "$value": "{color.white}" },
         "text": { "$value": "{color.blue.800}" },
         "shadow": { "$value": "{color.blue.300}" }
       }

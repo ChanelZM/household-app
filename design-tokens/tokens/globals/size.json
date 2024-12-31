@@ -24,14 +24,5 @@
     "pill": { "$value": 160 },
     "circle": { "$value": "50%", "$type": "percentage" },
     "base": { "$value": "{radius.md}" }
-  },
-
-  "zindex": {
-    "$type": "number",
-    "below": { "$value": -1 },
-    "zero": { "$value": 0 },
-    "header": { "$value": 100 },
-    "nav": { "$value": 200 },
-    "dialog": { "$value": 300 }
   }
 }
