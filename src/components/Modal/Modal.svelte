@@ -92,8 +92,9 @@
   }
 
   .close-button {
+    cursor: pointer;
+
     position: absolute;
-    z-index: 2;
     top: 0;
     right: 0;
 

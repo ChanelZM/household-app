@@ -70,7 +70,7 @@
     }
 
     &::after {
-      z-index: 1;
+      z-index: z-index(button-after);
       transform: translate(-5px, -5px);
     }
 
@@ -152,7 +152,7 @@
   }
 
   .button-content {
-    z-index: 2;
+    z-index: z-index(button-text);
     transform: translate(-5px, -5px);
 
     .button:active & {

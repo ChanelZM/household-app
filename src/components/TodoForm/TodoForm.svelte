@@ -114,14 +114,14 @@
   .form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
+    gap: var(--spacing-24);
+    margin-top: var(--spacing-40);
   }
 
   .buttons {
     display: flex;
-    gap: 1rem;
+    gap: var(--spacing-16);
     justify-content: flex-end;
-    margin-top: 1rem;
+    margin-top: var(--spacing-16);
   }
 </style>

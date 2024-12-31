@@ -45,6 +45,7 @@
 </div>
 
 <style lang="scss">
+  @use "$styles/base/helpers" as *;
   @use "$styles/abstracts" as *;
 
   .button {
@@ -127,10 +128,10 @@
 
   .container {
     position: relative;
-    z-index: var(--zindex-dialog);
+    z-index: z-index(menu);
   }
 
   .mobile-menu {
-    z-index: var(--zindex-dialog);
+    z-index: z-index(menu);
   }
 </style>
