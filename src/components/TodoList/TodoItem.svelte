@@ -16,6 +16,7 @@
   export let dueDate: string | undefined = undefined;
   export let isDeleting = false;
   export let isDoneChanging = false;
+  export let hourEstimate: number;
 
   const { locale } = $page.params;
 
@@ -28,16 +29,13 @@
 
 <Card {done}>
   <article class="wrapper" class:done>
-    <div class="checkbox">
-      <Checkbox
-        checked={!!done}
-        on:change={() => dispatch("done")}
-        disabled={isDeleting || isDoneChanging}
-      >
-        {done ? "Done" : "Open"}
-      </Checkbox>
-    </div>
-    <div class="header">
+    <Checkbox
+      {id}
+      checked={!!done}
+      on:change={() => dispatch("done")}
+      disabled={isDeleting || isDoneChanging}
+    />
+    <div>
       <Text
         variant="h2"
         styling="section"
@@ -48,56 +46,11 @@
           {description}
         </a>
       </Text>
-    </div>
-
-    <div class="body">
-      {#if project}
-        <div class="project">
-          <Text styling="subhead-sm" testId="todoitem-project-label"
-            >{project.name}</Text
-          >
-        </div>
-      {/if}
-
-      <div class={done ? "tag-done" : "tag"}>
-        <Text variant="span" styling="copy">
-          {done ? "Done" : "Todo"}
+      <span>
+        <Text variant="p" styling="body">
+          {hourEstimate} uur
         </Text>
-      </div>
-
-      {#if dueDate}
-        <div class="due-date">
-          <Text variant="span" styling="copy" testId="todoitem-date-label">
-            {dayjs(dueDate).format("DD MMM YYYY")}
-          </Text>
-        </div>
-      {/if}
-    </div>
-
-    <div class="actions">
-      <Stack align="start" horizontal smallGap wrap>
-        <Button
-          on:click={() => dispatch("edit", id)}
-          type="button"
-          small
-          fullwidth
-          variant="secondary"
-          disabled={isDeleting || isDoneChanging}
-          testId="todoitem-button-edit"
-        >
-          Edit
-        </Button>
-        <Button
-          on:click={() => dispatch("delete")}
-          type="button"
-          small
-          fullwidth
-          disabled={isDoneChanging}
-          testId="todoitem-button-delete"
-        >
-          Delete
-        </Button>
-      </Stack>
+      </span>
     </div>
   </article>
 </Card>
@@ -107,7 +60,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 20rem; /* 320px */
   }
 
   .header {

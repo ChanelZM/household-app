@@ -36,6 +36,8 @@
 </svelte:element>
 
 <style lang="scss">
+  @use "$styles/abstracts" as *;
+
   .h1,
   .h2,
   .h3,
@@ -49,10 +51,14 @@
 
   .heading1 {
     font-family: var(--font-family-boldena);
-    font-size: var(--font-size-xxxl);
+    font-size: var(--font-size-xxl);
     font-weight: 300;
     line-height: 1;
     text-transform: lowercase;
+
+    @include responsive-min($breakpoint-small-tablet) {
+      font-size: var(--font-size-xxxl);
+    }
   }
 
   .heading2 {

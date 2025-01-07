@@ -56,9 +56,7 @@
   .heading {
     display: flex;
     align-items: center;
-
     width: 100%;
-    height: 5rem;
     margin-bottom: var(--spacing-24);
   }
 

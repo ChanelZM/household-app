@@ -1,30 +1,23 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
 
+  export let id: string;
   export let checked: boolean;
   export let disabled: boolean | undefined = undefined;
 
   const dispatch = createEventDispatcher<{ change: boolean }>();
 </script>
 
-<label for="" class="wrapper">
-  <input
-    on:change={(e) => dispatch("change", e.currentTarget.checked)}
-    type="checkbox"
-    class="checkbox"
-    aria-disabled={disabled}
-    {checked}
-  />
-  <slot />
-</label>
+<input
+  on:change={(e) => dispatch("change", e.currentTarget.checked)}
+  {id}
+  type="checkbox"
+  class="checkbox"
+  aria-disabled={disabled}
+  {checked}
+/>
 
 <style lang="scss">
-  .wrapper {
-    display: flex;
-    gap: var(--spacing-16);
-    align-items: center;
-  }
-
   .checkbox {
     display: flex;
     align-items: center;
